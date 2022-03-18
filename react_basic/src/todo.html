@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오늘의 할일</title>
+  <style>
+    /* 태그 네임 */
+    div {
+      margin: 10px;
+      border: gray solid 1px;
+      border-radius: 10px;
+      padding: 10px;
+    }
+
+    button {
+      background-color: violet;
+      width: calc(20% -20px);
+    }
+
+    /* 수도클래스 */
+    button:hover {
+      background-color: blueviolet;
+    }
+
+    /* id */
+    #desc {
+      color: brown;
+    }
+
+    /* class */
+    .lastcard {
+      background-color: cadetblue;
+      color: aliceblue;
+    }
+
+    /* 여러요소 엮기 */
+    #desc,
+    .lastcard {
+      font-weight: bold;
+    }
+    .wrap{
+      display: flex;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>오늘 할 일</h1>
+  <div class="wrap">
+    <div>
+      <h2>고양이 밥주기</h2>
+      <p id="desc">고양이 물, 사료 챙겨주기</p>
+      <button>완료</button>
+    </div>
+    <div>
+      <h2>장보기</h2>
+      <p>토마토, 계란, 초코렛 사기</p>
+      <button>완료</button>
+    </div>
+  </div>
+
+  <div class="lastcard">
+    <h2>코딩하기</h2>
+    <p>리액트 강의 1주차 완료</p>
+    <button>완료</button>
+  </div>
+
+  <script>
+     const wraps = document.getElementsByClassName("wrap");
+     const title = document.getElementById("desc");
+     title.style.backgroundColor = "red";
+
+     const buttons = document.getElementsByTagName("button");
+     for (let i = 0; i < buttons.length; i++)
+     {
+       buttons[i].addEventListener("click",sayHello(i));
+     }
+     console.log(wraps, title,buttons)  
+
+     function sayHello(idx){
+      let card = document.getElementsByClassName("wrap")[idx];
+      card.style.backgroundColor = "blue";
+     }
+    //  배열, 유사배열 유사배열은 Array 내장함수를 쓰지못함. 
+    // CamelCase 가 먼지 자세히 조사 
+  </script>
+</body>
+  
+</html>
