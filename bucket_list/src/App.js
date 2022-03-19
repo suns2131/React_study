@@ -10,9 +10,14 @@ class App extends React.Component{
       this.state = {
         list : ["영화관 가기", "매일 책 읽기", "맛집 가기"],
       }
+      this.text = React.createRef();
   }
-
+componentDidMount(){
+  
+}
   render(){
+    console.log(this.text)
+    console.log(this.text.current)
     console.log(this.state.list)
     return (
       <div className='App'>
@@ -23,7 +28,11 @@ class App extends React.Component{
             <BucketLIst list_a = {this.state.list}/>
           </div>  
         </MyStyled>
-                
+        <div>
+          <input type="text" ref={this.text} onChange={() => {
+            // console.log(this.text.current.value)
+          }}/>
+        </div>   
       </div>
     );
   }

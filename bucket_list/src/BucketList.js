@@ -16,10 +16,17 @@ const BucketList = ({list_a}) => {
 
 // Quiz 1: my_list에 ['a', 'b', 'c'] 대신 부모 컴포넌트가 넘겨준 값을 넣으려면 어떻게 해야할까요?
 const my_lists = list_a;
+const my_wrap = React.useRef(3); //REF선언 
+
+
+
+window.setTimeout(() => {
+    console.log(my_wrap);
+},1000); //두번째 인자만큼의 시간이 흐른 후에 첫번째 인자로 넘겨준 함수를 실행하라는 윈도우 내장함수 .. 밀리세컨드 기준
 
 // 컴포넌트가 뿌려줄 ui 요소(리엑트 엘리먼트라고 불러요.)를 반환해줍니다.
 return (
-<div>
+<div ref={my_wrap}>
 {
 // js의 내장 함수 중 하나인 map입니다. 리스트의 갯수만큼 => 오른쪽 구문을 반복해요. 
 // 자세한 사용법은 아래 링크를 확인해주세요.
@@ -27,7 +34,8 @@ return (
 my_lists.map((list_a, index) => {
 // 콘솔을 확인해봅시다 :)
 console.log(list_a);
-return (<div className='wish_list' key={index}>{list_a}</div>);
+return (
+<div  className='wish_list' key={index}>{list_a}</div>);
 })
 }
 </div>
