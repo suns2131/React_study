@@ -1,0 +1,31 @@
+.App{
+    background-color: #eee;
+    height: 100vh; /*vh : 화면기준*/
+    width: 100vw;
+    display: flex;
+
+}
+
+.container{
+    background-color: #fff;
+    width: 50vw;
+    max-width: 350px;
+    height: 80vh;
+    margin: auto;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    padding: 16px;
+}
+hr{
+    margin: 16px 0px; /*두개로 줄떄는 좌우, 상하 순임. */
+}
+.container > h1 {
+    color:darkblue;
+    text-align: center;
+}
+
+.wish_list {
+    padding: 16px;
+    margin: 8px;
+    background-color: #eadd;
+}
