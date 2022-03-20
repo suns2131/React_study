@@ -8,43 +8,26 @@ class App extends React.Component{
   constructor(props){
       super(props);
       this.state = {
-        list : ["영화관 가기", "매일 책 읽기", "맛집 가기"],
+        list : [],
       }
-      this.text = React.createRef();
   }
 componentDidMount(){
   
 }
   render(){
-    console.log(this.text)
-    console.log(this.text.current)
-    console.log(this.state.list)
     return (
       <div className='App'>
         <MyStyled>
           <div className='container'>
             <h1>내 버킷 리스트</h1>
             <hr className='line'/>
-            <BucketLIst list_a = {this.state.list}/>
+            <BucketLIst list = {this.state.list}/>
           </div>  
         </MyStyled>
-        <div>
-          <input type="text" ref={this.text} onChange={() => {
-            // console.log(this.text.current.value)
-          }}/>
-        </div>   
       </div>
     );
   }
 }
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <BucketLIst/>
-//     </div>
-//   );
-// }
 
 const MyStyled = styled.div`
   background-color: #eee;
@@ -77,7 +60,19 @@ const MyStyled = styled.div`
       background-color : red;
     };
   }
+  .input_text{
+    padding : 16px;
+    bottom : 8vh;
+    position: absolute;
+  }
+  button{
+    margin : 10px;
+  }
 }
+`;
+
+const inputstyle = styled.div`
+ 
 `;
 /* 스타일 컴포넌트에서 나 자신 지칭 & , 자식요소 스타일에는 안에서 태그명 선언해서 하면됨. */ 
 
