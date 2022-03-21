@@ -33,7 +33,6 @@ return (
 <div style={{width: "100vw", height:"100vh", textAlign:"center"}}>
 <Text/>
 <div style={{margin:"auto", width: "250px", height: "250px", background:"green", borderRadius:"250px"}} ref={this.circle}></div>
-
 </div>
 );
 }
