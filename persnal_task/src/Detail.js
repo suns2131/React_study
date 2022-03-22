@@ -1,86 +1,97 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import {useHistory} from "react-router-dom"
 
 const Detail = (props) => {
+    const [event_num, setEvnetnum] = useState(0)
     const parpam = useParams();
     const history = useHistory();
-    const frist = React.useRef(1);
-    const second = React.useRef(2);
-    const thrid = React.useRef(3);
-    const fourth = React.useRef(4);
-    const fifth = React.useRef(5);
+    const frist = React.useRef(null);
+    const second = React.useRef(null);
+    const thrid = React.useRef(null);
+    const fourth = React.useRef(null);
+    const fifth = React.useRef(null);
 
-    const keyupevent_fi = (e) => {
-      console.log(e.key);
-      console.log('첫번째 동그라미 ');
-   }
+    
    //#region 클릭이벤트 함수목록
-    const clickevent_fi = () => {
-       frist.current.style.background = "yellow";
-       second.current.style.background = "gray";
-       thrid.current.style.background = "gray";
-       fourth.current.style.background = "gray";
-       fifth.current.style.background = "gray";
+    const new_clickevent = (num) => {
+        setEvnetnum(num);
+        console.log('새로운 클릭이벤트 발생! : ' + num)
     }
-   
-    const clickevent_se = () => {
-       frist.current.style.background = "yellow";
-       second.current.style.background = "yellow";
-       thrid.current.style.background = "gray";
-       fourth.current.style.background = "gray";
-       fifth.current.style.background = "gray";
-    }
-    const clickevent_th = () => {
-      frist.current.style.background = "yellow";
-       second.current.style.background = "yellow";
-       thrid.current.style.background = "yellow";
-       fourth.current.style.background = "gray";
-       fifth.current.style.background = "gray";
-    }
-    const clickevent_fo = () => {
-      frist.current.style.background = "yellow";
-       second.current.style.background = "yellow";
-       thrid.current.style.background = "yellow";
-       fourth.current.style.background = "yellow";
-       fifth.current.style.background = "gray";
-    }
-    const clickevent_fif = () => {
-      frist.current.style.background = "yellow";
-       second.current.style.background = "yellow";
-       thrid.current.style.background = "yellow";
-       fourth.current.style.background = "yellow";
-       fifth.current.style.background = "yellow";
+
+    const change_circle = () => {
+      switch(event_num)
+      {
+        case 1:
+          frist.current.style.background = "yellow";
+          second.current.style.background = "gray";
+          thrid.current.style.background = "gray";
+          fourth.current.style.background = "gray";
+          fifth.current.style.background = "gray"; 
+          break;
+        case 2:
+          frist.current.style.background = "yellow";
+          second.current.style.background = "yellow";
+          thrid.current.style.background = "gray";
+          fourth.current.style.background = "gray";
+          fifth.current.style.background = "gray";
+          break;
+        case 3:
+          frist.current.style.background = "yellow";
+          second.current.style.background = "yellow";
+          thrid.current.style.background = "yellow";
+          fourth.current.style.background = "gray";
+          fifth.current.style.background = "gray";
+          break;
+        case 4:
+          frist.current.style.background = "yellow";
+          second.current.style.background = "yellow";
+          thrid.current.style.background = "yellow";
+          fourth.current.style.background = "yellow";
+          fifth.current.style.background = "gray";
+          break;
+        case 5:
+          frist.current.style.background = "yellow";
+          second.current.style.background = "yellow";
+          thrid.current.style.background = "yellow";
+          fourth.current.style.background = "yellow";
+          fifth.current.style.background = "yellow";
+          break;
+      }
     }
   //#endregion
+
+  const keyupevent_fi = (e) => {
+    console.log(e.key);
+    setEvnetnum(e.key*1);
+  }
     
-  
   React.useEffect(() => {
-      frist.current.addEventListener("click",clickevent_fi);
-      second.current.addEventListener("click",clickevent_se);
-      thrid.current.addEventListener("click",clickevent_th);
-      fourth.current.addEventListener("click",clickevent_fo);
-      fifth.current.addEventListener("click",clickevent_fif);
-  
+      frist.current.addEventListener('click',() => {new_clickevent(1)});
+      second.current.addEventListener('click',() => {new_clickevent(2)});
+      thrid.current.addEventListener('click',() => {new_clickevent(3)});
+      fourth.current.addEventListener('click',() => {new_clickevent(4)});
+      fifth.current.addEventListener('click',() => {new_clickevent(5)});
+      change_circle();
       return () =>{
-        frist.current.removeEventListener("click",clickevent_fi);
-        second.current.removeEventListener("click",clickevent_se);
-        thrid.current.removeEventListener("click",clickevent_th);
-        fourth.current.removeEventListener("click",clickevent_fo);
-        fifth.current.removeEventListener("click",clickevent_fif);
+        frist.current.removeEventListener('click',() => {new_clickevent(1)});
+        second.current.removeEventListener('click',() => {new_clickevent(2)});
+        thrid.current.removeEventListener('click',() => {new_clickevent(3)});
+        fourth.current.removeEventListener('click',() => {new_clickevent(4)});
+        fifth.current.removeEventListener('click',() => {new_clickevent(5)});
       }
-  }, []);
+  }, [event_num]);
     return (
         <DetailDesign>
-        <div onKeyDown={keyupevent_fi} className="container">
+        <div onKeyDown={keyupevent_fi} tabIndex="0" className="container">
             <h2>{parpam.days}요일 평점 남기기</h2>
             <div className="circle_line">
                 <div ref={frist} style={{margin: "5px",width: "30px",background: "gray",height: "30px", borderRadius:"250px"}} />
                 <div ref={second} style={{margin: "5px",width: "30px",background: "gray",height: "30px", borderRadius:"250px"}} />
                 <div ref={thrid}  style={{margin: "5px",width: "30px",background: "gray",height: "30px", borderRadius:"250px"}} />
                 <div ref={fourth} style={{margin: "5px",width: "30px",background: "gray",height: "30px", borderRadius:"250px"}} />
-                <div ref={fifth} style={{margin: "5px",width: "30px",background: "gray",height: "30px", borderRadius:"250px"}} />
+                <div ref={fifth}  style={{margin: "5px",width: "30px",background: "gray",height: "30px", borderRadius:"250px"}} />
             </div>
             <div className="btn_line">
                 <button onClick={() =>{history.push('/');}}>평점 남기기</button>

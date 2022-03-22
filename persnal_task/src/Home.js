@@ -20,7 +20,6 @@ const Home = () => {
     );
 };
 
-
 const HomeDesign = styled.div`
   background-color: #E0F8EC;
   height: 100vh; /*vh : 화면기준*/
