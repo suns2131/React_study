@@ -1,10 +1,13 @@
 // 리액트 패키지를 불러옵니다.
 import React from 'react'; 
+import {useSelector} from "react-redux";
 
 const BucketList = ({list}) => {
 const [counts,setCount] = React.useState(0);
 const my_wrap = React.useRef(null); //REF선언 맨처음에 가지고있을 값선언 
 let my_list = list;
+const data = useSelector((state) => state.bucket.list);
+console.log(data);
 // window.setTimeout(() => {
 //     console.log(my_wrap);
 // },1000); 

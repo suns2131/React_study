@@ -52,10 +52,11 @@ const HomeDesign = styled.div`
       margin : auto;
       width : 0px;
       height : 0px;
+      background-color : white;
       border-left : 30px solid #5858FA;
-      border-right : 20px solid transparent;
-      border-top : 20px solid transparent;
-      border-bottom : 20px solid transparent;
+      border-right : 20px solid white;
+      border-top : 20px solid white;
+      border-bottom : 20px solid white;
       
     }
   }

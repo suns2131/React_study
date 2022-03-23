@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import React from 'react';
 import styled from "styled-components";
 import BucketLIst from './BucketList';
+import {useDispatch} from "react-redux"
 
 class App extends React.Component{
   constructor(props){
@@ -16,6 +17,7 @@ componentDidMount(){
 }
   render(){
     return (
+      
       <div className='App'>
         <MyStyled>
           <div className='container'>
